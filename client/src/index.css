@@ -12,7 +12,7 @@ body > #root > div {
 
 @font-face {
   font-family: 'LexendDeca';
-  src: local('LexendDeca'), url(../assets/fonts/LexendDeca-Regular.ttf),
+  src: local('LexendDeca'), url(./assets/fonts/LexendDeca-Regular.ttf),
     format('truetype');
 }
 
