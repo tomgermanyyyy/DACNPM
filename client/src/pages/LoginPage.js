@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/LoginPage.css';
+
 import { ReactComponent as LoginIcon } from '../assets/login-icon.svg';
 import { ReactComponent as LoginScreenFooter } from '../assets/login-screen-footer.svg';
+import '../styles/Login.css';
 
 const Login = () => {
   const login = () => {};
@@ -37,7 +38,7 @@ const Login = () => {
           <span>Login</span>
         </button>
       </form>
-      <LoginScreenFooter />
+      <LoginScreenFooter className="login-footer" />
     </div>
   );
 };
