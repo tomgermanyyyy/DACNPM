@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(228, 228, 228);
+    padding: 1rem 0.5rem;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+.portion {
+    font-size: 0.8rem;
+}
+.portion p{
+    color: #585858;
+    margin-bottom: 1rem;
+}
+.portion div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
