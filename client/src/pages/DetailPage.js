@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../styles/Home.module.css";
+import classes from "../styles/DetailPage.module.css";
 import { Sidebar, SquareChart,SiloDetail,RectangleChart} from "../components";
 import { useParams } from "react-router-dom";
 const HomePage = () => {
