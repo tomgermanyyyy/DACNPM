@@ -1,8 +1,15 @@
-import React from "react";
-const HomePage = () => {
-  return <div>
+import React from 'react';
+import { Sidebar, Home } from '../components';
 
-  </div>;
+import '../styles/HomePage.css';
+
+const HomePage = () => {
+    return (
+        <div className="homepage-container">
+            <Sidebar />
+            <Home />
+        </div>
+    );
 };
 
 export default HomePage;
