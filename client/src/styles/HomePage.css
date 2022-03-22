@@ -1,0 +1,11 @@
+.homepage-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.homepage-container button:hover {
+    transition: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}

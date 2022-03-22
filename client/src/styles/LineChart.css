@@ -1,0 +1,23 @@
+.line-chart {
+    padding: 10px;
+
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.line-chart h2 {
+    margin-bottom: 2px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.line-chart-text {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    color: rgb(85, 85, 85);
+}
+
+.line-chart-text span {
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
