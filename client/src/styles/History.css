@@ -257,3 +257,15 @@
     color: #C52116;
 }
 
+.history .message {
+    display: none;
+}
+
+.history .message.active {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: #ff7a7a;
+    font-weight: bold;
+}
+

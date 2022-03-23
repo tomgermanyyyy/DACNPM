@@ -1,7 +1,6 @@
 import React from 'react'
 
-function ErrorMessage({value, message}) {
-    if (!value) return null;
+function ErrorMessage({message}) {
     return (
         <div className='message'>{message}</div>
     )
