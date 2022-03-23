@@ -35,7 +35,11 @@ const plotSchema = new mongoose.Schema({
     },
     dome: {
         type: String,
-        default: "OFF"
+        default: "OFF",
+    },
+    location: {
+        type: String,
+        required: true
     }
 });
 
