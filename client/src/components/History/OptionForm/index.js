@@ -79,18 +79,21 @@ function OptionForm({selectedOptions ,handleChangeValue, handleClickView}) {
 			<div className='options'>
 				<div className='plot-option option active' >
 					<h6 onClick={handleHideOtherOptions} data-option="plot">Choose a plot</h6>
+					<div className='message'>You have not selected the plot</div>
 					<div className='option-flex'>
 						{plotItems}
 					</div>
 				</div>
 				<div className='device-option option'>
 					<h6 onClick={handleHideOtherOptions} data-option="device">Choose a device</h6>
+					<div className='message'>You have not selected the device</div>
 					<div className='option-flex'>
 						{deviceItems}
 					</div>
 				</div>
 				<div className='time-option option'>
 					<h6 onClick={handleHideOtherOptions} data-option="time">Choose a time</h6>
+					<div className='message'>You have not selected the time</div>
 					<div className='option-flex'>
 						<label>
 							<span>From:</span>
