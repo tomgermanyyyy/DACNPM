@@ -5,15 +5,15 @@ const plotSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    temp: {
+    temp_value: {
         type: Number,
         default: 0
     },
-    humidity: {
+    moisture_value: {
         type: Number,
         default: 0
     },
-    light: {
+    light_value: {
         type: Number,
         default: 0
     },
@@ -21,16 +21,28 @@ const plotSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    humidity_check: {
+    moisture_check: {
         type: Number,
         default: 0
     },
     light_check: {
         type: Number,
         default: 0
+    },
+    pump: {
+        type: Number,
+        default: 0
+    },
+    dome: {
+        type: Number,
+        default: 1,
+    },
+    location: {
+        type: String,
+        required: true
     }
 });
 
-const plotModel = mongoose.model("plot", plotSchema);
+const plotModel = mongoose.model("plots", plotSchema);
 
 module.exports = plotModel;
