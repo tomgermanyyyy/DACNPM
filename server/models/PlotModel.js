@@ -5,15 +5,15 @@ const plotSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    temp: {
+    temp_value: {
         type: Number,
         default: 0
     },
-    humidity: {
+    moisture_value: {
         type: Number,
         default: 0
     },
-    light: {
+    light_value: {
         type: Number,
         default: 0
     },
@@ -21,13 +21,25 @@ const plotSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    humidity_check: {
+    moisture_check: {
         type: Number,
         default: 0
     },
     light_check: {
         type: Number,
         default: 0
+    },
+    pumb: {
+        type: Boolean,
+        default: false
+    },
+    dome: {
+        type: Boolean,
+        default: false,
+    },
+    location: {
+        type: String,
+        required: true
     }
 });
 

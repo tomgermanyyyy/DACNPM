@@ -1,0 +1,271 @@
+.history-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+
+.history {
+    padding: 60px;
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+.history h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.history .content {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.history .content h5 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.history #please-choose {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.history #please-choose button {
+    padding: 10px 25px;
+    background-color: #16C57E;
+    color: #fff;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.history form h6 {
+    display: inline-block;
+    color: #00FF47;
+    background-color: #040609;
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.history form .options {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.history form .option .option-flex {
+    display: none;
+}
+
+.history form .option.active .option-flex {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.history form .option-item {
+    position: relative;
+}
+
+.history input[type="radio"] {
+    position: absolute;
+    outline: none;
+    margin: 0;
+    width: 180px;
+    height: 100%;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.history input:checked + label,
+.history input:not(:checked) + label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 180px;
+    height: 220px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.history input:checked + label {
+    background-color: #324244;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.history input:not(:checked) + label {
+    background-color: transparent;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.history input:not(:checked) + label .circle {
+    display: none;
+}
+
+.history input:checked + label .circle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0D9B44;
+}
+
+.history input:checked + label .name,
+.history input:not(:checked) + label .name {
+    font-weight: 600;
+}
+
+.history input:checked + label .name {
+    color: #fff;
+}
+
+.history input:checked + label .image,
+.history input:not(:checked) + label .image {
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.history input:checked + label .circle_image,
+.history input:not(:checked) + label .circle_image {
+    border-radius: 50%;
+}
+
+.history input:checked + label .circle_image {
+    background-color: #F3F3F4;
+}
+
+
+.history input:not(:checked) + label .circle_image {
+    background-color: #C4C4C4;
+}
+
+.history input:checked + label img,
+.history input:not(:checked) + label img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(70%);
+}
+
+.history form .time-option label {
+    margin-right: 60px;
+}
+
+.history form .time-option label span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.history form .time-option label input {
+    padding: 10px;
+    border: 3px solid #16C57E;
+    border-radius: 10px;
+}
+
+.history .result-container {
+    display: none;
+}
+
+.history .result-container.active {
+    display: block;
+}
+
+.history .result {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px 60px;
+}
+
+.history .resultItem {
+    position: relative;
+}
+
+.history .resultItem .pattern {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 3px;
+    height: 100%;
+    background-color: #16C57E;
+}
+
+.history .resultItem .pattern::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #16C57E;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.history .resultItem h6 {
+    font-size: 16px;
+    color: #16C57E;
+    margin-bottom: 10px;
+}
+
+.history .resultBox {
+    border: 3px solid #16C57E;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.history .resultBox .item-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.6;
+}
+
+.history .resultBox .item-flex span {
+    display: block;
+}
+
+.history .resultBox .item-flex span.id {
+    color: #FFAA00;
+}
+
+.history .resultBox .item-flex span.success {
+    color: #16C57E;
+}
+
+.history .resultBox .item-flex span.failure {
+    color: #C52116;
+}
+
+.history .message {
+    display: none;
+}
+
+.history .message.active {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: #ff7a7a;
+    font-weight: bold;
+}
+
