@@ -5,17 +5,17 @@ import requests
 import time
 from Adafruit_IO import MQTTClient
 
-AIO_FEED_ID = ["dome", "light-sensor", "pumb", "soil-moisture-sensor", "temp-sensor"]
+AIO_FEED_ID = ["DOME", "LIGHT-SENSOR", "PUMP", "SOIL-MOISTURE-SENSOR", "TEMP-SENSOR"]
 AIO_USERNAME = "hbngo21"
 AIO_KEY = "aio_tWnv46UnSeETBGuPzyBpun2r4w3S"
 API_BASE_URL = "http://localhost:5000/api"
 
 MAP_DEVICE_TO_NAME_STORE_AS_DB = {
-    "dome": "led",
-    "pump": "pump",
-    "temp-sensor": "temp_value",
-    "soil-moisture-sensor": "moisture_value",
-    "light-sensor": "light_value"
+    "DOME": "dome", 
+    "LIGHT-SENSOR": "light_value", 
+    "PUMP": "pump", 
+    "SOIL-MOISTURE-SENSOR": "moisture_value", 
+    "TEMP-SENSOR": "temp_value"
 }
 
 def connected(client):
@@ -54,7 +54,6 @@ def processData(data):
     data = data.replace("!", "")
     data = data.replace("#", "")
     splitData = data.split(":")
-    print(splitData)
     if splitData[1] in AIO_FEED_ID:
         # data : id-value
         url = API_BASE_URL + "/adafruit/send-data"
@@ -68,9 +67,7 @@ def processData(data):
             "Authorization": "Bearer "
         }
         requests.post(url, data=json.dumps(payload), headers=headers)
-
         client.publish(splitData[1], splitData[0] + "-" + splitData[2])
-    #client.publish(splitData[1], splitData[2])
 
 # Serial reading function
 mess = ""
