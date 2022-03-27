@@ -30,12 +30,12 @@ const plotSchema = new mongoose.Schema({
         default: 0
     },
     pumb: {
-        type: String,
-        default: "OFF"
+        type: Boolean,
+        default: false
     },
     dome: {
-        type: String,
-        default: "OFF",
+        type: Boolean,
+        default: false,
     },
     location: {
         type: String,
