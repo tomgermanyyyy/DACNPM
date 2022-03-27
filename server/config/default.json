@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://hbngo21:hbngo21@cluster0.nchsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  "jwtSecret": "dSMS9tJM1Pq9nDU25K9"
+    "mongoURI": "mongodb+srv://hbngo21:hbngo21@cluster0.nchsq.mongodb.net/smart-farm?retryWrites=true&w=majority",
+    "jwtSecret": "dSMS9tJM1Pq9nDU25K9"
 }
