@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const controlHistorySchema = new mongoose.Schema({
-    deviceId: mongoose.Types.ObjectId,
+    plotID : mongoose.Types.ObjectId,
+    device: {
+        type: String,
+        required: true
+    },
     timestamp: {
         type: Date,
         required: true
@@ -14,8 +18,12 @@ const controlHistorySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    success: {
+        type: Boolean,
+        default: true
+    }
 });
 
-const controlHistoryModel = mongoose.model("control-history", controlHistorySchema);
+const controlHistoryModel = mongoose.model("History", controlHistorySchema);
 
 module.exports = controlHistoryModel;
