@@ -22,6 +22,8 @@ app.use('/api/plot', require('./routes/PlotRouter'));
 // app.use('/api/users', require('./routes/users'));
 // app.use('/api/auth', require('./routes/auth'));
 app.use('/api/plot', require('./routes/PlotRouter'));
+app.use('/api/history', require('./routes/HistoryRouter'));
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT} 🚀`));
