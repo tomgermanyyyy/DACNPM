@@ -8,18 +8,14 @@ connectDB();
 
 app.use(cors());
 
-app.use(
-    express.urlencoded({
-        extended: true,
-    })
-);
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => res.send('API Running'));
 app.use('/api/adafruit', require('./routes/adafruit.js'))
 app.use('/api/plot', require('./routes/PlotRouter'));
 
-// app.use('/api/users', require('./routes/users'));
+app.use('/api/users', require('./routes/UserRouter'));
 // app.use('/api/auth', require('./routes/auth'));
 app.use('/api/plot', require('./routes/PlotRouter'));
 app.use('/api/history', require('./routes/HistoryRouter'));
