@@ -1,6 +1,6 @@
 const express = require('express');
 const UserController = require('../controllers/UserController');
-
+const auth = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/authenticate', async function (req, res) {
@@ -20,7 +20,7 @@ router.get('/authenticate', async function (req, res) {
   }
 });
 
-router.patch('/password', async function (req, res) {
+router.patch('/password', auth, async function (req, res) {
   try {
     await UserController.changePassword(
       req.body.username,
