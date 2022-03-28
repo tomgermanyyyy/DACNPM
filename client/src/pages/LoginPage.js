@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { ReactComponent as LoginIcon } from '../assets/login-icon.svg';
 import { ReactComponent as LoginScreenFooter } from '../assets/login-screen-footer.svg';
-import '../styles/Login.css';
+import '../styles/LoginPage.css';
 
 const Login = () => {
   const login = () => {};
