@@ -1,14 +1,14 @@
 import React from 'react'
 
-function ResultItem({ id, time, action, actor, success }) {
+function ResultItem({ id, date, hour, action, actor, success }) {
     return (
         <div className='resultItem'>
             <div className='pattern'></div>
-            <h6 class="date">03/03/2022</h6>
+            <h6 class="date">{date}</h6>
             <div className='resultBox'>
                 <div className='item-flex'>
                     <span className='id'>{id}</span>
-                    <span>{time}</span>
+                    <span>{hour}</span>
                 </div>
                 <div className='item-flex'>
                     <div>

@@ -7,7 +7,8 @@ function HistoryResult({results}) {
 			{results.map(result => 
 				<ResultItem 
 					id={result.id} 
-					time={result.time} 
+					date={result.date}
+					hour={result.hour} 
 					action={result.action} 
 					actor={result.actor} 
 					success={result.success}  

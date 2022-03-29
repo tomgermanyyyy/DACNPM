@@ -7,17 +7,17 @@ import CeilingMeshImg from '../../../assets/CeilingMesh.png'
 
 const plots = [
 	{
-		"id": "1",
+		"id": "623fc8e17446956862565b44",
 		"name": "Plot 1",
 		"image": PlantImg
 	},
 	{
-		"id": "2",
+		"id": "6231a25a7dd34d26841ed8e1",
 		"name": "Plot 2",
 		"image": PlantImg
 	},
 	{
-		"id": "3",
+		"id": "6231a2897dd34d26841ed8e2",
 		"name": "Plot 3",
 		"image": PlantImg
 	}
@@ -26,11 +26,13 @@ const devices = [
 	{
 		"id": "1",
 		"name": "Water Pump",
+		"value": "pump",
 		"image": WaterPumpImg
 	},
 	{
 		"id": "2",
 		"name": "Ceiling Mesh",
+		"value": "dome",
 		"image": CeilingMeshImg
 	}
 ];
@@ -57,9 +59,9 @@ function OptionForm({selectedOptions ,handleChangeValue, handleClickView}) {
 		<div key={device.id} className="option-item">
 			<input
 				type="radio"
-				value={device.id}
+				value={device.value}
 				name="selectedDevice"
-				checked={selectedOptions.selectedDevice === device.id}
+				checked={selectedOptions.selectedDevice === device.value}
 				onChange={handleChangeValue}>
 			</input>
 			<label>
