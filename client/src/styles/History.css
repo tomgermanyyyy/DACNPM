@@ -269,3 +269,10 @@
     font-weight: bold;
 }
 
+.history .result-container .sorry {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ff7a7a;
+    font-weight: bold;
+}
+
