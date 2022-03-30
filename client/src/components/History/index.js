@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import OptionForm from './OptionForm'
 import HistoryResult from './HistoryResult'
+import axios from 'axios'
 
 
 function History() {
@@ -12,20 +13,44 @@ function History() {
 			to: ''
 		}
 	);
-	const [results, setResults] = useState(initalResults);
+	const [results, setResults] = useState([]);
 	const resultDiv = useRef(null);
 
 
 	function handleClickView(event) {
 		event.preventDefault();
 		console.log('ok');
+		axios.post('http://localhost:5000/api/history/search', {
+			selectedPlot: selectedOptions.selectedPlot,
+			selectedDevice: selectedOptions.selectedDevice,
+			from: selectedOptions.from,
+			to: selectedOptions.to
+		})
+			.then(res => {
+				let arr = []
+				res.data.map(item => {
+					let date = new Date(item.timestamp);
+					console.log(date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate())
+					arr.push({
+						id: item._id,
+						date: date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate(),
+						hour: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+						action: item.status,
+						actor: item.user,
+						success: item.success
+					})
+				})
+				setResults(arr)
+			})
+			.catch(err => {
+				console.log(err)
+			})
 		const validValues = validateOptions();
 		if (validValues) resultDiv.current.classList.add('active');
 	}
 
 	function validateOptions() {
 		let [msg1, msg2, msg3] = document.querySelectorAll('.history form .option .message');
-		console.log(msg1);
 		let validateOneOption1 = validateOneOption(selectedOptions.selectedPlot, msg1);
 		let validateOneOption2 = validateOneOption(selectedOptions.selectedDevice, msg2);
 		let validateOneOption3 = validateOneOption(selectedOptions.from, msg3);
@@ -69,7 +94,11 @@ function History() {
 				</div>
 				<div className='result-container' ref={resultDiv}>
 					<h5>Result</h5>
-					<HistoryResult results={results} />
+					{	
+						results.length == 0 ? 
+						<p className='sorry'>Sorry, no matches were found</p> :
+						<HistoryResult results={results} /> 
+					}
 				</div>
 			</div>
 		</div>
@@ -77,35 +106,5 @@ function History() {
 }
 
 
-const initalResults = [
-	{
-		"id": "#123456",
-		"time": "07:00:00 AM",
-		"action": "Open",
-		"actor": "Username",
-		"success": true
-	},
-	{
-		"id": "#123457",
-		"time": "07:00:00 AM",
-		"action": "Open",
-		"actor": "Auto",
-		"success": true
-	},
-	{
-		"id": "#123458",
-		"time": "07:00:00 AM",
-		"action": "Open",
-		"actor": "Username",
-		"success": false
-	},
-	{
-		"id": "#123459",
-		"time": "07:00:00 AM",
-		"action": "Open",
-		"actor": "Username",
-		"success": true
-	},
-]
 
 export default History

@@ -13,14 +13,16 @@ exports.saveHistory = (params) => {
 
 exports.showHistory = async(req, res) => {
     try {
-        const historyResult = await History.find({
-            plotID: req.params.selectedPlot,
-            device: req.params.selectedDevice,
-            timestamp: {
-                $gte: req.param.from,
-                $lte: req.params.to
+        const historyResult = await History.find(
+            {
+                plotID: req.body.selectedPlot,
+                device: req.body.selectedDevice,
+                timestamp: {
+                    $gte: req.body.from,
+                    $lte: req.body.to
+                }
             }
-        });
+        );
         res.status(200).json(historyResult);
     } catch (err) {
         return res.status(500).json({
