@@ -6,7 +6,7 @@ const Dome = (props) => {
   const [isChecked, setIsChecked] = useState(props.dome);
   const checkHandler = () => {
     setIsChecked(!isChecked);
-    fetch("http://localhost:5000/api/plot/623fc8e17446956862565b44", {
+    fetch(`http://localhost:5000/api/plot/${props.siloID}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

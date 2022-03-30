@@ -60,8 +60,8 @@ const HomePage = () => {
           light={siloInfo.light_value}
         ></SiloDetail>
         <div className={classes.modifyButton}>
-          <WaterPump pump={siloInfo.pump}></WaterPump>
-          <Dome dome={siloInfo.dome}></Dome>
+          <WaterPump siloID={siloID} pump={siloInfo.pump}></WaterPump>
+          <Dome siloID={siloID} dome={siloInfo.dome}></Dome>
         </div>
       </div>
     </div>
