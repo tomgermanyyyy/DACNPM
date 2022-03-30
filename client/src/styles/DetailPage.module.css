@@ -11,3 +11,16 @@
     padding: 0.5rem;
     background-color: rgb(223, 223, 223);
 }
+.modifyButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px -1px #0003, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+    padding: 1rem;
+}
+.textcenter{
+    text-align: center;
+}

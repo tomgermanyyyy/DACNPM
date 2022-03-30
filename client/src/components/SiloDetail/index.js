@@ -1,18 +1,20 @@
 import classes from "../../styles/SiloDetail.module.css";
 import InfoBar from "./InfoBar";
-import Aeration from "./Aeration";
-import WaterPump from "./WaterPump";
-import LightBulb from "./LightBulb";
 const SiloDetail = (props) => {
   const idOfSilo = props.siloID;
   return (
     <div className={classes.container}>
-      <h1>{`${idOfSilo} :Info`}</h1>
-      <InfoBar></InfoBar>
-      <div className={classes.onOffBars}>
-        <Aeration></Aeration>
-        <WaterPump></WaterPump>
-        <LightBulb></LightBulb>
+      <h1>{`${idOfSilo}`}</h1>
+      <InfoBar
+        dome={props.dome}
+        pump={props.pump}
+        moisture={props.moisture}
+        temperature={props.temperature}
+        light={props.light}
+      ></InfoBar>
+      <div className={classes.address}>
+        <span>Location:</span>
+        <span>{props.location}</span>
       </div>
     </div>
   );

@@ -188,3 +188,8 @@ a:active {
 .login-footer {
   margin-top: 46px;
 }
+
+.err-msg {
+  color: red;
+  margin-top: 8px;
+}

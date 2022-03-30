@@ -29,13 +29,13 @@ const plotSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    pumb: {
-        type: String,
-        default: "OFF"
+    pump: {
+        type: Number,
+        default: 0
     },
     dome: {
-        type: String,
-        default: "OFF",
+        type: Number,
+        default: 1,
     },
     location: {
         type: String,
@@ -43,6 +43,6 @@ const plotSchema = new mongoose.Schema({
     }
 });
 
-const plotModel = mongoose.model("plot", plotSchema);
+const plotModel = mongoose.model("plots", plotSchema);
 
 module.exports = plotModel;
