@@ -2,6 +2,7 @@ import { FaUmbrellaBeach } from "react-icons/fa";
 import classes from "../../styles/TurnOnOff.module.css";
 import "../../styles/SwitchButton.css";
 import { useState } from "react";
+import axios from 'axios'
 const Dome = (props) => {
   const [isChecked, setIsChecked] = useState(props.dome);
   const checkHandler = () => {
@@ -13,6 +14,14 @@ const Dome = (props) => {
         dome: !isChecked,
       }),
     });
+    axios.post("http://localhost:5000/api/history/save", {
+        plotID: props.siloID,
+        device: "dome",
+        timestamp: new Date(),
+        status: !isChecked ? "Open" : "Close",
+        user: "admin",
+        success: true
+    })
   };
   return (
     <div className={classes.container}>

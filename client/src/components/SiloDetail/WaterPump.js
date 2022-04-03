@@ -1,6 +1,7 @@
 import { GiWateringCan } from "react-icons/gi";
 import classes from "../../styles/TurnOnOff.module.css";
 import { useState } from "react";
+import axios from 'axios'
 const WaterPump = (props) => {
   const [isChecked, setIsChecked] = useState(props.pump);
   const checkHandler = () => {
@@ -12,6 +13,14 @@ const WaterPump = (props) => {
         pump: !isChecked,
       }),
     });
+    axios.post("http://localhost:5000/api/history/save", {
+        plotID: props.siloID,
+        device: "pump",
+        timestamp: new Date(),
+        status: !isChecked ? "Open" : "Close",
+        user: "admin",
+        success: true
+    })
   };
   return (
     <div className={classes.container}>
