@@ -1,0 +1,50 @@
+.home-plot {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.home-plot__name {
+  display: inline-block;
+  text-align: left;
+  font-size: 16px;
+  padding: 12px 20px;
+  margin: 15px 0;
+
+  background-color: #040609;
+
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.home-plot__name a {
+  text-decoration: none;
+  color: #00ff47 !important;
+}
+
+.home-plot__charts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-plot__chart {
+  width: 30%;
+  padding: 10px 0;
+}
+
+.home-plot__chart__title {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.home-plot__chart__value {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
