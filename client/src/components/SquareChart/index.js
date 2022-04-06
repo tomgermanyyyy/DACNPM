@@ -8,7 +8,7 @@ const SquareChart = (props) => {
       <div className={classes.footer}>
         <span>{props.value}</span>
       </div>
-    </div>
+    </div>  
   );
 };
 
