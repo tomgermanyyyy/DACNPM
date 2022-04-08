@@ -21,6 +21,11 @@ const WaterPump = (props) => {
         user: "admin",
         success: true
     })
+    axios.post("http://localhost:5000/api/adafruit/update", {
+      plotId: props.siloID,
+      name: "pump",
+      value: !isChecked ? 1 : 0
+    })
   };
   return (
     <div className={classes.container}>
