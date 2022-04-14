@@ -8,9 +8,9 @@ function PlotTable({ plotData }) {
   const [data, setData] = useState([]);
   const [columns, setColumns] = useState([
     { title: 'Crop', field: 'crop' },
-    { title: 'Temperature, °C', field: 'temp_value' },
-    { title: 'Moisture, %', field: 'moisture_value' },
-    { title: 'Light, lux', field: 'light_value' },
+    { title: 'Temperature (°C)', field: 'temp_value' },
+    { title: 'Moisture (%)', field: 'moisture_value' },
+    { title: 'Light (lux)', field: 'light_value' },
   ]);
 
   useEffect(() => {

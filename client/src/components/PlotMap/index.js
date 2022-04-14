@@ -56,13 +56,13 @@ function PlotMap({ plotData }) {
             </h4>
             <p>
               <strong>Temperature: </strong>
-              {`${activePlot.temp_value} °C`}
+              {`${activePlot.temp_value}°C`}
               <br />
               <strong>Moisture: </strong>
-              {`${activePlot.moisture_value} %`}
+              {`${activePlot.moisture_value}%`}
               <br />
               <strong>Light: </strong>
-              {`${activePlot.light_value} lux`}
+              {`${activePlot.light_value}lux`}
             </p>
           </div>
         </Popup>

@@ -25,17 +25,17 @@ function HomePlot({ plot }) {
         <div className="home-plot__chart">
           <h5 className="home-plot__chart__title">Temperature</h5>
           <SChart name={'Temperature'} percent={temp_value / temp_check} />
-          <h6 className="home-plot__chart__value">{`${temp_value} °C`}</h6>
+          <h6 className="home-plot__chart__value">{`${temp_value}°C`}</h6>
         </div>
         <div className="home-plot__chart">
           <h5 className="home-plot__chart__title">Moisture</h5>
           <SChart name={'Moisture'} percent={moisture_value / moisture_check} />
-          <h6 className="home-plot__chart__value">{`${moisture_value} °C`}</h6>
+          <h6 className="home-plot__chart__value">{`${moisture_value}%`}</h6>
         </div>
         <div className="home-plot__chart">
           <h5 className="home-plot__chart__title">Light</h5>
           <SChart name={'Light'} percent={light_value / light_check} />
-          <h6 className="home-plot__chart__value">{`${light_value} lux`}</h6>
+          <h6 className="home-plot__chart__value">{`${light_value}lux`}</h6>
         </div>
       </div>
     </div>
