@@ -19,6 +19,7 @@ const HomePage = () => {
       })
       .then((data) => {
         setSiloInfo(data);
+        
       })
       .catch((err) => {
         console.log("something went wrong");
@@ -27,6 +28,9 @@ const HomePage = () => {
   }, []);
   if (!siloInfo) {
     return <h1 className={classes.textcenter}>Loading...</h1>;
+  }
+  if(siloInfo){
+    console.log(siloInfo.moisture_check);
   }
   if (error) {
     return <h1 className={classes.textcenter}>{error}</h1>;
@@ -51,13 +55,17 @@ const HomePage = () => {
           value={`${siloInfo.temp_value}°C`}
         />
         <SiloDetail
-          siloID={`Silo ${siloInfo.crop}`}
+          siloName={`Silo ${siloInfo.crop}`}
+          siloID= {siloID}
           location={siloInfo.location}
           dome={siloInfo.dome}
           pump={siloInfo.pump}
           moisture={siloInfo.moisture_value}
           temperature={siloInfo.temp_value}
           light={siloInfo.light_value}
+          light_check={siloInfo.light_check}
+          moisture_check={siloInfo.moisture_check}
+          temp_check={siloInfo.temp_check}
         ></SiloDetail>
         <div className={classes.modifyButton}>
           <WaterPump siloID={siloID} pump={siloInfo.pump}></WaterPump>

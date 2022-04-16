@@ -1,10 +1,36 @@
 import classes from "../../styles/SiloDetail.module.css";
 import InfoBar from "./InfoBar";
+import { FaRegEdit } from "react-icons/fa";
+import { CheckValueForm, Modal } from "../../components";
+import { useSelector, useDispatch } from "react-redux";
+import { showModal } from "../../actions/showhide";
 const SiloDetail = (props) => {
-  const idOfSilo = props.siloID;
+  const idOfSilo = props.siloName;
+  const dispatch = useDispatch();
+  const formIsShown = useSelector((state) => state.showhide);
+  console.log(formIsShown);
+  const showFormHandler = () => {
+    dispatch(showModal());
+  };
   return (
     <div className={classes.container}>
-      <h1>{`${idOfSilo}`}</h1>
+      {formIsShown && (
+        <Modal>
+          <CheckValueForm
+            siloID={props.siloID}
+            moisture_check={props.moisture_check}
+            temp_check={props.temp_check}
+            light_check={props.light_check}
+          />
+        </Modal>
+      )}
+      <div className={classes.title}>
+        <h1>{`${idOfSilo}`}</h1>
+        <div className={classes.checkmark}>
+          <p>Edit check value</p>
+          <FaRegEdit className={classes.editIcon} onClick={showFormHandler} />
+        </div>
+      </div>
       <InfoBar
         dome={props.dome}
         pump={props.pump}

@@ -11,6 +11,16 @@
   flex-direction: column;
   gap: 4rem;
 }
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.editIcon{
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgb(255, 0, 0);
+  margin-left: 1rem;
+}
 .onOffBars {
   display: flex;
   flex-direction: column;
@@ -20,4 +30,12 @@
   font-size: 1.3rem;
   font-weight: bold;
   margin-right: 0.5rem;
+}
+.checkmark{
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.3rem;
+  color: rgb(0, 0, 0);
 }
