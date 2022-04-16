@@ -276,3 +276,89 @@
     font-weight: bold;
 }
 
+@media only screen and (max-width: 768px) {
+    .history form .option.active .option-flex {
+        gap: 50px
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .history {
+        padding: 30px 15px;
+        font-size: 16px;
+    }
+    .history h3 {
+        font-size: 20px;
+    }
+    .history .form-container {
+        position: relative;
+        margin-bottom: 100px;
+    }
+    .history .content {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    } 
+    .history .content h5 {
+        font-size: 16px;
+    }
+    .history #please-choose {
+        position: absolute;
+        display: block;
+        width: 100%;
+        bottom: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0;
+    }
+    .history #please-choose button {
+        display: block;
+        width: 100%;
+    }
+    .history form h6 {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+    .history form .option.active .option-flex {
+        gap: 20px;
+    }
+
+    .history input:checked + label, .history input:not(:checked) + label  {
+        width: 100px;
+        height: 160px;
+    }
+    .history input[type="radio"] {
+        width: 100px;
+    }
+    .history input:checked + label .circle {
+        top: 10px;
+        right: 10px;
+        width: 10px;
+        height: 10px;
+    }
+    .history input:checked + label .image, .history input:not(:checked) + label .image {
+        width: 65px;
+        height: 65px;
+    }
+    .history input:checked + label img, .history input:not(:checked) + label img {
+        transform: translate(-50%, -50%) scale(45%);
+    }
+    .history input:checked + label .name, .history input:not(:checked) + label .name {
+        font-size: 12px;
+    }
+    .history .message.active {
+        font-size: 10px;
+    }
+    .history form .time-option label {
+        margin-right: 30px;
+    }
+    .history form .time-option label span {
+        font-size: 12px;
+    }
+    .history form .time-option label input {
+        padding: 5px;
+    }
+    .history .result-container.active {
+        font-size: 14px;
+    }
+}
+
