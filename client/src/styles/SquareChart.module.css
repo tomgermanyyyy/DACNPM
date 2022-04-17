@@ -1,17 +1,26 @@
 .footer{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 1rem;
     color: rgb(85, 85, 85);
-
+    font-weight: bold;
+}
+.footer span{
+    font-size: 2rem;
 }
 .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 10px;
     box-shadow: 0 2px 4px -1px #0003, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
     background-color: rgb(243, 243, 243);
     width: 100%;
     padding: 1rem;
+}
+.container h1{
+    text-align: center;
 }
 .text{
     display: flex;

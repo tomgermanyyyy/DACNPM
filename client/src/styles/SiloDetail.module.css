@@ -1,17 +1,41 @@
-.container{
-    grid-column: 3/4;
-    grid-row: 1/3;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px -1px #0003, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
-    background-color: rgb(243, 243, 243);
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+.container {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px -1px #0003, 0 4px 5px 0 #00000024,
+    0 1px 10px 0 #0000001f;
+  background-color: rgb(243, 243, 243);
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
-.onOffBars{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.editIcon{
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgb(255, 0, 0);
+  margin-left: 1rem;
+}
+.onOffBars {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.address span:first-child {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.checkmark{
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.3rem;
+  color: rgb(0, 0, 0);
 }

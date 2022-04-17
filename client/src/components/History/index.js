@@ -30,11 +30,19 @@ function History() {
 				let arr = []
 				res.data.map(item => {
 					let date = new Date(item.timestamp);
-					console.log(date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate())
+					let hours = date.getHours();
+					if (hours < 10) hours = '0' + hours;
+
+					let minutes = date.getMinutes();
+					if (minutes < 10) minutes = '0' + minutes;
+
+					let seconds = date.getSeconds();
+					if (seconds < 10) seconds = '0' + seconds;
+
 					arr.push({
 						id: item._id,
-						date: date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate(),
-						hour: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+						date:  (date.getDate()) + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+						hour: hours + ':' + minutes + ':' + seconds,
 						action: item.status,
 						actor: item.user,
 						success: item.success

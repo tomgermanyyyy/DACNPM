@@ -9,6 +9,8 @@ router.get('/', PlotController.getAllPlot);
 router
     .route('/:id')
     .get(PlotController.getPlotInfo)
-    .put(PlotController.updatePlot);
-
+    .put(PlotController.updatePlot)
+router
+    .route('/check_update/:id')
+    .get(PlotController.comparisonAndUpdate)
 module.exports = router;

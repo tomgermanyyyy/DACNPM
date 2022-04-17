@@ -1,44 +1,47 @@
-//import { sendError, sendServerError, sendSuccess, sendRequest } from "../middleware/client"
 const express = require("express");
 const PlotModel = require('../models/PlotModel')
-
-const adafruitRoute = express.Router()
-const mapDeviceAdafruit = {
-    dome: 'DOME',
-    light_value: 'LIGHT-SENSOR',
-    pump: 'PUMP',
-    soil_value: 'SOIL-MOISTURE-SENSOR',
-    temp_value: 'TEMP-SENSOR'
-}
-const sendSuccess = (res, message, data = null) => {
-    let responseJson = {
-        success: true,
-        message: message
-    }
-    if (data) responseJson.data = data
-    return res.status(200).json(responseJson)
+const ADAFRUIT_URL= "https://io.adafruit.com/api/v2"
+const ADAFRUIT_NAME = "hbngo21"
+const ADAFRUIT_KEY = "aio_tWnv46UnSeETBGuPzyBpun2r4w3S"
+const router = express.Router()
+const axios = require('axios').default;
+const feedID = {
+    dome: 'dome',
+    light_value: 'light-sensor',
+    pump: 'pump',
+    soil_value: 'soil-moisture-sensor',
+    temp_value: 'temp-sensor'
 }
 
-/**
- * @route POST /api/adafruit/send-data
- * @description send data from gateway to socket io server & update to database
- * @access private
- */
- adafruitRoute.post('/send-data', async (req, res) => {
+ router.post('/send', async (req, res) => {
     console.log(req.body)
-    
-    const { productId, value, device } = req.body
-    const feedId = mapDeviceAdafruit[device]
+    const { plotId, name, value } = req.body
     try {
-        let updateQuery = {}
-        updateQuery[device] = value
-        const check = await PlotModel.findByIdAndUpdate(productId, updateQuery)
-        return sendSuccess(res, `Send data to socket server successfully.`, {
-            productId, value, device
-        })
+        let query = {}
+        query[name] = value
+        const data = await PlotModel.findByIdAndUpdate(plotId, query)
+        res.status(200).json(data);
     } catch (error) {
         console.log(error)
     }
 })
 
-module.exports = adafruitRoute;
+ router.post('/update', async (req, res) => {
+    console.log(req.body)
+    const { plotId, name, value } = req.body
+    try {
+        var config = {
+            headers: {
+                "Content-Type": "application/json",
+                "X-AIO-Key": ADAFRUIT_KEY
+            }
+        }
+        const data = {value: `${plotId}-${value}`}
+
+        axios.post(`${ADAFRUIT_URL}/${ADAFRUIT_NAME}/feeds/${feedID[name]}/data`, data, config)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+module.exports = router;

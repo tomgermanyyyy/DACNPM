@@ -1,44 +1,47 @@
 import { GoPrimitiveDot } from "react-icons/go";
-import {ImDroplet} from "react-icons/im"
-import {FaTemperatureHigh} from "react-icons/fa"
-import {MdLocalGasStation} from "react-icons/md"
-import classes from "../../styles/InfoBar.module.css"
-const InfoBar = () => {
+import { ImDroplet } from "react-icons/im";
+import { FaTemperatureHigh } from "react-icons/fa";
+import { BsFillSunFill } from "react-icons/bs";
+import classes from "../../styles/InfoBar.module.css";
+const InfoBar = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.portion}>
-        <p>Aeration:</p>
+        <p>Dome</p>
         <div>
           <GoPrimitiveDot size={25} color="green"></GoPrimitiveDot>
-          <span>Off</span>
+          <span>{props.dome === 1? "ON": "OFF"}</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Moisture:</p>
+        <p>Pump</p>
         <div>
-          <ImDroplet size={25}></ImDroplet>
-          <span>64.5%</span>
+          <GoPrimitiveDot size={25} color="green"></GoPrimitiveDot>
+          <span>{props.pump === 1? "ON": "OFF"}</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Temperature:</p>
+        <p>Moisture</p>
         <div>
-          <FaTemperatureHigh size={25}></FaTemperatureHigh>
-          <span>24.5%</span>
+          <ImDroplet size={25} color="rgba(0, 242, 255, 0.8)"></ImDroplet>
+          <span>{props.moisture}%</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Outdoor temp:</p>
+        <p>Temperature</p>
         <div>
-          <FaTemperatureHigh size={25}></FaTemperatureHigh>
-          <span>24.5%</span>
+          <FaTemperatureHigh
+            size={25}
+            color="rgba(255, 124, 0, 0.8)"
+          ></FaTemperatureHigh>
+          <span>{props.temperature}°C</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Crop level:</p>
+        <p>Light Intensity</p>
         <div>
-          <MdLocalGasStation size={25} color="green"></MdLocalGasStation>
-          <span>24.5%</span>
+          <BsFillSunFill size={25} color="rgba(224, 232, 0, 1)"></BsFillSunFill>
+          <span>{props.light} lux</span>
         </div>
       </div>
     </div>
