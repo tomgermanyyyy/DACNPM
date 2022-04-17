@@ -5,6 +5,8 @@ import * as yup from 'yup';
 import { PasswordInputField, Sidebar } from '../components';
 import '../styles/ChangePasswordPage.css';
 import UserAPI from '../services/user.service';
+import { openNav } from '../actions/sidebar';
+import { useDispatch } from 'react-redux';
 
 const schema = yup
   .object({
@@ -28,6 +30,7 @@ const schema = yup
   .required();
 
 const ChangePasswordPage = () => {
+  const dispatch = useDispatch();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const {
@@ -58,9 +61,17 @@ const ChangePasswordPage = () => {
     <div className="change-password-container">
       <Sidebar />
       <form
+        id="main-content"
         className="change-password-content"
         onSubmit={handleSubmit(onSubmit)}
       >
+        <button
+          className="openbtn"
+          type="button"
+          onClick={() => dispatch(openNav())}
+        >
+          &#9776;
+        </button>
         <h1 className="change-password-title">Change Your Password</h1>
         <p>A strong password protect you from security problem</p>
         {success && <span style={{ color: 'green' }}>Success!</span>}

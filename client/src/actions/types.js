@@ -8,3 +8,5 @@ export const LOGOUT = 'LOGOUT';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
+export const OPEN_NAV = 'OPEN_NAV';
+export const CLOSE_NAV = 'CLOSE_NAV';

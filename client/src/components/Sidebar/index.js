@@ -7,6 +7,7 @@ import { ReactComponent as LogoutIcon } from '../../assets/logout-icon.svg';
 import { ReactComponent as SettingIcon } from '../../assets/settings.svg';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/auth';
+import { closeNav } from '../../actions/sidebar';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -14,39 +15,40 @@ const Sidebar = () => {
   const { pathname } = useLocation();
   console.log(pathname);
 
-  const handelChangePage = (route) => {
+  const handleChangePage = (route) => {
     history.push(`${route}`);
   };
 
   return (
-    <div className="side-bar">
+    <div id="sidebar" className="side-bar">
       <h1 className="side-bar-title">SMART FARM</h1>
-      <div className="side-bar-btn-container">
-        <button
-          className={`side-bar-btn ${
-            pathname === '/' ? 'side-bar-btn--active' : ''
-          }`}
-          onClick={() => handelChangePage('')}
-        >
-          <HomeIcon /> <span>Home</span>
-        </button>
-        <button
-          className={`side-bar-btn ${
-            pathname === '/history' ? 'side-bar-btn--active' : ''
-          }`}
-          onClick={() => handelChangePage('/history')}
-        >
-          <HistoryIcon /> <span>History</span>
-        </button>
-        <button
-          className={`side-bar-btn ${
-            pathname === '/change-password' ? 'side-bar-btn--active' : ''
-          }`}
-          onClick={() => handelChangePage('/change-password')}
-        >
-          <SettingIcon /> <span>Password</span>
-        </button>
-      </div>
+      <button className="closebtn" onClick={() => dispatch(closeNav())}>
+        &times;
+      </button>
+      <button
+        className={`side-bar-btn ${
+          pathname === '/' ? 'side-bar-btn--active' : ''
+        }`}
+        onClick={() => handleChangePage('')}
+      >
+        <HomeIcon /> <span>Home</span>
+      </button>
+      <button
+        className={`side-bar-btn ${
+          pathname === '/history' ? 'side-bar-btn--active' : ''
+        }`}
+        onClick={() => handleChangePage('/history')}
+      >
+        <HistoryIcon /> <span>History</span>
+      </button>
+      <button
+        className={`side-bar-btn ${
+          pathname === '/change-password' ? 'side-bar-btn--active' : ''
+        }`}
+        onClick={() => handleChangePage('/change-password')}
+      >
+        <SettingIcon /> <span>Password</span>
+      </button>
       <div className="user-info">
         <Avatar />
         <p>Username</p>

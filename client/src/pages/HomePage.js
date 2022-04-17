@@ -5,6 +5,7 @@ import '../styles/HomePage.css';
 const HomePage = () => {
   return (
     <div className="homepage-container">
+      <Sidebar />
       <Home />
     </div>
   );

@@ -5,9 +5,12 @@ import '../../styles/Home.css';
 import HomePlot from '../HomePlot';
 import PlotMap from '../PlotMap';
 import PlotTable from '../PlotTable';
+import { useDispatch } from 'react-redux';
+import { openNav } from '../../actions/sidebar';
 
 const Home = () => {
   const [plotData, setPlotData] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getPlotData = async () => {
@@ -23,8 +26,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <h1 className="home-title">Welcome to SmarFarm, Admin</h1>
+    <div id="main-content" className="home-container">
+      <button
+        className="openbtn"
+        type="button"
+        onClick={() => dispatch(openNav())}
+      >
+        &#9776;
+      </button>
+      <h1 className="home-title">Welcome to SmartFarm, Admin</h1>
       <div className="home-wrapper">
         <div className="home-top">
           <PlotMap plotData={plotData} />

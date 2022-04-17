@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import classes from "../styles/DetailPage.module.css";
-import WaterPump from "../components/SiloDetail/WaterPump";
-import { Sidebar, SquareChart, SiloDetail } from "../components";
-import { useParams } from "react-router-dom";
-import Dome from "../components/SiloDetail/Dome";
+import React, { useEffect, useState } from 'react';
+import classes from '../styles/DetailPage.module.css';
+import WaterPump from '../components/SiloDetail/WaterPump';
+import { Sidebar, SquareChart, SiloDetail } from '../components';
+import { useParams } from 'react-router-dom';
+import Dome from '../components/SiloDetail/Dome';
 const HomePage = () => {
   const [siloInfo, setSiloInfo] = useState();
   const [error, setError] = useState();
@@ -12,24 +12,23 @@ const HomePage = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/api/plot/${siloID}`)
       .then((res) => {
-        if(res.status===500){
-          setError("Silo Not Found");
+        if (res.status === 500) {
+          setError('Silo Not Found');
         }
         return res.json();
       })
       .then((data) => {
         setSiloInfo(data);
-        
       })
       .catch((err) => {
-        console.log("something went wrong");
+        console.log('something went wrong');
         setError(err);
       });
-  }, []);
+  }, [siloID]);
   if (!siloInfo) {
     return <h1 className={classes.textcenter}>Loading...</h1>;
   }
-  if(siloInfo){
+  if (siloInfo) {
     console.log(siloInfo.moisture_check);
   }
   if (error) {
@@ -56,7 +55,7 @@ const HomePage = () => {
         />
         <SiloDetail
           siloName={`Silo ${siloInfo.crop}`}
-          siloID= {siloID}
+          siloID={siloID}
           location={siloInfo.location}
           dome={siloInfo.dome}
           pump={siloInfo.pump}
