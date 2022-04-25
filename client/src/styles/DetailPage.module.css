@@ -3,6 +3,7 @@
     flex-direction: row;
 }
 .content{
+    margin-left: 300px;
     display: grid;
     grid-gap: 0.5rem;
     grid-template-columns: 1fr 1fr 1fr;
