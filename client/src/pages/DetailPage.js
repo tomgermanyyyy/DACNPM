@@ -4,7 +4,12 @@ import WaterPump from '../components/SiloDetail/WaterPump';
 import { Sidebar, SquareChart, SiloDetail } from '../components';
 import { useParams } from 'react-router-dom';
 import Dome from '../components/SiloDetail/Dome';
+import '../styles/ChangePasswordPage.css';
+import { useDispatch } from 'react-redux';
+import { openNav } from '../actions/sidebar';
+
 const HomePage = () => {
+  const dispatch = useDispatch();
   const [siloInfo, setSiloInfo] = useState();
   const [error, setError] = useState();
   const params = useParams();
@@ -37,7 +42,14 @@ const HomePage = () => {
   return (
     <div className={classes.home}>
       <Sidebar />
-      <div className={classes.content}>
+      <div id="main-content" className={classes.content}>
+        <button
+          className={classes.openbtn2}
+          style={{ width: '10px', height: '10px' }}
+          onClick={() => dispatch(openNav())}
+        >
+          &#9776;
+        </button>
         <SquareChart
           name="Moisture"
           percent={siloInfo.moisture_value / siloInfo.moisture_check}

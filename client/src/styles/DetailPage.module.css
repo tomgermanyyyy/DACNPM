@@ -1,27 +1,43 @@
-.home{
-    display: flex;
-    flex-direction: row;
+.home {
+  display: flex;
+  flex-direction: row;
 }
-.content{
-    margin-left: 300px;
-    display: grid;
-    grid-gap: 0.5rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 100%;
-    padding: 0.5rem;
-    background-color: rgb(223, 223, 223);
+.content {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgb(223, 223, 223);
 }
-.modifyButton{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px -1px #0003, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
-    background-color: rgb(243, 243, 243);
-    width: 100%;
-    padding: 1rem;
+.modifyButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px -1px #0003, 0 4px 5px 0 #00000024,
+    0 1px 10px 0 #0000001f;
+  background-color: rgb(243, 243, 243);
+  width: 100%;
+  padding: 1rem;
 }
-.textcenter{
-    text-align: center;
+.textcenter {
+  text-align: center;
+}
+
+.openbtn2 {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #f3f3f3;
+  color: #040609;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+}
+
+@media only screen and (min-width: 768px) {
+  .openbtn2 {
+    display: none;
+  }
 }
