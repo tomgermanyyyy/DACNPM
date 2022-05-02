@@ -1,6 +1,7 @@
 import serial.tools.list_ports
-import random
 import time
+from datetime import datetime
+import pytz
 import json
 import sys
 import requests
@@ -70,6 +71,7 @@ def processData(data):
     print(splitData)
     try:
         if splitData[1] in ADAFRUIT_IO_FEEDID:
+            client.publish(splitData[1], splitData[2])
             url = API_BASE_URL + "/adafruit/send"
             payload = {
                 "plotId": splitData[0],
@@ -81,7 +83,52 @@ def processData(data):
                 "Authorization": "Bearer "
             }
             requests.post(url, data=json.dumps(payload), headers=headers)
-            client.publish(splitData[1], splitData[2])
+            url = API_BASE_URL + "/plot/" + splitData[0]
+            data = requests.get(url).json()
+            # Control pump
+            if ((data['moisture_value'] < data['moisture_check'] and data['pump'] == 0) or (data['moisture_value'] > data['moisture_check'] and data['pump'] == 1)):
+                url = API_BASE_URL + "/adafruit/send"
+                payload = {
+                    "plotId": splitData[0],
+                    "name": 'pump',
+                    "value": 1 if data['pump'] == 0 else 0
+                }
+                requests.post(url, data=json.dumps(payload), headers=headers)
+                client.publish("PUMP", 1 if data['pump'] == 0 else 0)
+                # Save into history
+                url = API_BASE_URL + "/history/save"
+                payload = {
+                    "plotID": splitData[0],
+                    "device": 'pump',
+                    "timestamp": datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%d/%m/%Y %H:%M:%S"),
+                    "status": "Open" if data['pump'] == 0 else "Close",
+                    "user": "auto",
+                    "success": True
+                }
+                requests.post(url, data=json.dumps(payload), headers=headers)
+
+            # Control dome
+            if ((data['temp_value'] > data['temp_check'] and data['dome'] == 0) or (data['light_value'] > data['light_check'] and data['dome'] == 0) or
+            (data['temp_value'] < data['temp_check'] and data['light_value'] < data['light_check'] and data['dome'] == 1)):
+                url = API_BASE_URL + "/adafruit/send"
+                payload = {
+                    "plotId": splitData[0],
+                    "name": 'dome',
+                    "value": 1 if data['dome'] == 0 else 0
+                }
+                requests.post(url, data=json.dumps(payload), headers=headers)
+                client.publish("DOME", 1 if data['dome'] == 0 else 0)
+                # Save into history
+                url = API_BASE_URL + "/history/save"
+                payload = {
+                    "plotID": splitData[0],
+                    "device": 'dome',
+                    "timestamp": datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%d/%m/%Y %H:%M:%S"),
+                    "status": "Open" if data['dome'] == 0 else "Close",
+                    "user": "auto",
+                    "success": True
+                }
+                requests.post(url, data=json.dumps(payload), headers=headers)
     except:
         pass
 
