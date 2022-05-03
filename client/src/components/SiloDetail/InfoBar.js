@@ -7,28 +7,28 @@ const InfoBar = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.portion}>
-        <p>Dome</p>
+        <span>Dome</span>
         <div>
           <GoPrimitiveDot size={25} color="green"></GoPrimitiveDot>
           <span>{props.dome === 1? "ON": "OFF"}</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Pump</p>
+        <soan>Pump</soan>
         <div>
           <GoPrimitiveDot size={25} color="green"></GoPrimitiveDot>
           <span>{props.pump === 1? "ON": "OFF"}</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Moisture</p>
+        <span>Moisture</span>
         <div>
           <ImDroplet size={25} color="rgba(0, 242, 255, 0.8)"></ImDroplet>
           <span>{props.moisture}%</span>
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Temperature</p>
+        <soan>Temperature</soan>
         <div>
           <FaTemperatureHigh
             size={25}
@@ -38,7 +38,7 @@ const InfoBar = (props) => {
         </div>
       </div>
       <div className={classes.portion}>
-        <p>Light Intensity</p>
+        <span>Light Intensity</span>
         <div>
           <BsFillSunFill size={25} color="rgba(224, 232, 0, 1)"></BsFillSunFill>
           <span>{props.light} lux</span>

@@ -1,13 +1,18 @@
 .container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: rgb(228, 228, 228);
     padding: 1rem 0.5rem;
     border-radius: 5px;
     justify-content: space-between;
 }
 .portion {
+    margin: 1rem 0;
     font-size: 1.5rem;
+    border-bottom: 1px solid rgb(0, 0, 0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .portion p{
     color: #585858;
@@ -15,7 +20,18 @@
 }
 .portion div{
     display: flex;
-    align-items: center;
     justify-content: space-between;
     font-weight: bold;
+}
+@media only screen and (min-width: 1024px){
+    .container{
+        flex-direction: row;
+    }
+    .portion {
+        flex-direction: column;
+        font-size: 1rem;
+    }
+    .portion div{
+        width: 100%;
+    }
 }
