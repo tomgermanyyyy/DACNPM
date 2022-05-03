@@ -50,37 +50,41 @@ const HomePage = () => {
         >
           &#9776;
         </button>
-        <SquareChart
-          name="Moisture"
-          percent={siloInfo.moisture_value / siloInfo.moisture_check}
-          value={`${siloInfo.moisture_value}%`}
-        />
-        <SquareChart
-          name="Light"
-          percent={siloInfo.light_value / siloInfo.light_check}
-          value={`${siloInfo.light_value} lux`}
-        />
-        <SquareChart
-          name="Temperature"
-          percent={siloInfo.temp_value / siloInfo.temp_check}
-          value={`${siloInfo.temp_value}°C`}
-        />
-        <SiloDetail
-          siloName={`Silo ${siloInfo.crop}`}
-          siloID={siloID}
-          location={siloInfo.location}
-          dome={siloInfo.dome}
-          pump={siloInfo.pump}
-          moisture={siloInfo.moisture_value}
-          temperature={siloInfo.temp_value}
-          light={siloInfo.light_value}
-          light_check={siloInfo.light_check}
-          moisture_check={siloInfo.moisture_check}
-          temp_check={siloInfo.temp_check}
-        ></SiloDetail>
-        <div className={classes.modifyButton}>
-          <WaterPump siloID={siloID} pump={siloInfo.pump}></WaterPump>
-          <Dome siloID={siloID} dome={siloInfo.dome}></Dome>
+        <div className={classes.top}>
+          <SquareChart
+            name="Moisture"
+            percent={siloInfo.moisture_value / siloInfo.moisture_check}
+            value={`${siloInfo.moisture_value}%`}
+          />
+          <SquareChart
+            name="Light"
+            percent={siloInfo.light_value / siloInfo.light_check}
+            value={`${siloInfo.light_value} lux`}
+          />
+          <SquareChart
+            name="Temperature"
+            percent={siloInfo.temp_value / siloInfo.temp_check}
+            value={`${siloInfo.temp_value}°C`}
+          />
+        </div>
+        <div className={classes.bottom}>
+          <SiloDetail
+            siloName={`Silo ${siloInfo.crop}`}
+            siloID={siloID}
+            location={siloInfo.location}
+            dome={siloInfo.dome}
+            pump={siloInfo.pump}
+            moisture={siloInfo.moisture_value}
+            temperature={siloInfo.temp_value}
+            light={siloInfo.light_value}
+            light_check={siloInfo.light_check}
+            moisture_check={siloInfo.moisture_check}
+            temp_check={siloInfo.temp_check}
+          ></SiloDetail>
+          <div className={classes.modifyButton}>
+            <WaterPump siloID={siloID} pump={siloInfo.pump}></WaterPump>
+            <Dome siloID={siloID} dome={siloInfo.dome}></Dome>
+          </div>
         </div>
       </div>
     </div>

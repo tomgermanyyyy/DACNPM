@@ -3,7 +3,7 @@ import SChart from "./SChart";
 const SquareChart = (props) => {
   return (
     <div className={classes.container}>
-      <h1>{props.name}</h1>
+      <p>{props.name}</p>
       <SChart name={props.name} percent={props.percent}/>
       <div className={classes.footer}>
         <span>{props.value}</span>

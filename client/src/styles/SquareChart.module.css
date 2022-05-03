@@ -7,7 +7,7 @@
     font-weight: bold;
 }
 .footer span{
-    font-size: 2rem;
+    font-size: 1rem;
 }
 .container{
     display: flex;
@@ -18,9 +18,16 @@
     background-color: rgb(243, 243, 243);
     width: 100%;
     padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
 }
-.container h1{
+.container p{
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.container div:first-child{
+    width: 50%;
 }
 .text{
     display: flex;
@@ -29,4 +36,20 @@
 }
 .text span{
     margin-left: 0.5rem;
+}
+@media (min-width:768px) {
+    .container{
+        width: 32%;
+    }
+    .container p{
+        font-size: 1rem;
+    }
+}
+@media (min-width:1024px){
+    .container p{
+        font-size: 1.8rem;
+    }
+    .footer span{
+        font-size: 1.5rem;
+    }
 }
