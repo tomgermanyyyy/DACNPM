@@ -9,14 +9,14 @@ const InfoBar = (props) => {
       <div className={classes.portion}>
         <span>Dome</span>
         <div>
-          <GoPrimitiveDot size={25} color="green"></GoPrimitiveDot>
+          <GoPrimitiveDot size={25} color={props.dome === 1? "green": "red"}></GoPrimitiveDot>
           <span>{props.dome === 1? "ON": "OFF"}</span>
         </div>
       </div>
       <div className={classes.portion}>
         <soan>Pump</soan>
         <div>
-          <GoPrimitiveDot size={25} color="green"></GoPrimitiveDot>
+          <GoPrimitiveDot size={25} color={props.pump === 1? "green": "red"}></GoPrimitiveDot>
           <span>{props.pump === 1? "ON": "OFF"}</span>
         </div>
       </div>
@@ -28,7 +28,7 @@ const InfoBar = (props) => {
         </div>
       </div>
       <div className={classes.portion}>
-        <soan>Temperature</soan>
+        <span>Temperature</span>
         <div>
           <FaTemperatureHigh
             size={25}
