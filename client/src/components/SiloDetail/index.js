@@ -5,6 +5,11 @@ import { ConfigCheckForm, Modal } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../actions/showhide";
 const SiloDetail = (props) => {
+  const plotNames = {
+    "Silo A": "Plot A",
+    "Silo B": "Plot B",
+    "Silo C": "Plot C",
+  };
   const idOfSilo = props.siloName;
   const dispatch = useDispatch();
   const formIsShown = useSelector((state) => state.showhide);
@@ -24,7 +29,7 @@ const SiloDetail = (props) => {
         </Modal>
       )}
       <div className={classes.title}>
-        <h1>{`${idOfSilo}`}</h1>
+        <h1>{`${plotNames[idOfSilo]}`}</h1>
         <div className={classes.checkmark}>
           <p>Edit check value</p>
           <FaRegEdit className={classes.editIcon} onClick={showFormHandler} />
