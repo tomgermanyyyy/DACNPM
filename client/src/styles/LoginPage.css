@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   background-color: #f3f3f4;
+  height: 100vh;
+  position: relative;
   width: 100%;
   overflow-x: hidden;
 }
@@ -184,7 +186,11 @@ a:active {
 }
 
 .login-footer {
-  margin-top: 46px;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  height: 111px;
+  width: 100%;
 }
 
 .err-msg {

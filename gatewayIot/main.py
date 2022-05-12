@@ -74,7 +74,7 @@ def processData(data):
             client.publish(splitData[1], splitData[2])
             url = API_BASE_URL + "/adafruit/send"
             payload = {
-                "plotId": splitData[0],
+                "plotId": "623fc8e17446956862565b44",
                 "name": DEVICE_IN_DB[splitData[1]],
                 "value": splitData[2]
             }
@@ -85,11 +85,12 @@ def processData(data):
             requests.post(url, data=json.dumps(payload), headers=headers)
             url = API_BASE_URL + "/plot/" + splitData[0]
             data = requests.get(url).json()
+
             # Control pump
             if ((data['moisture_value'] < data['moisture_check'] and data['pump'] == 0) or (data['moisture_value'] > data['moisture_check'] and data['pump'] == 1)):
                 url = API_BASE_URL + "/adafruit/send"
                 payload = {
-                    "plotId": splitData[0],
+                    "plotId": "623fc8e17446956862565b44",
                     "name": 'pump',
                     "value": 1 if data['pump'] == 0 else 0
                 }
@@ -98,7 +99,7 @@ def processData(data):
                 # Save into history
                 url = API_BASE_URL + "/history/save"
                 payload = {
-                    "plotID": splitData[0],
+                    "plotID": "623fc8e17446956862565b44",
                     "device": 'pump',
                     "timestamp": datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%d/%m/%Y %H:%M:%S"),
                     "status": "Open" if data['pump'] == 0 else "Close",
@@ -112,7 +113,7 @@ def processData(data):
             (data['temp_value'] < data['temp_check'] and data['light_value'] < data['light_check'] and data['dome'] == 1)):
                 url = API_BASE_URL + "/adafruit/send"
                 payload = {
-                    "plotId": splitData[0],
+                    "plotId": "623fc8e17446956862565b44",
                     "name": 'dome',
                     "value": 1 if data['dome'] == 0 else 0
                 }
@@ -121,7 +122,7 @@ def processData(data):
                 # Save into history
                 url = API_BASE_URL + "/history/save"
                 payload = {
-                    "plotID": splitData[0],
+                    "plotID": "623fc8e17446956862565b44",
                     "device": 'dome',
                     "timestamp": datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%d/%m/%Y %H:%M:%S"),
                     "status": "Open" if data['dome'] == 0 else "Close",

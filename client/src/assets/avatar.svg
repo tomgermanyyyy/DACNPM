@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+=======
+<svg width="75" height="75" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+>>>>>>> a6a0f67b9063cc45f72943d58c1a07341c312cc5
 <circle cx="50" cy="50" r="50" fill="#C4C4C4"/>
 <rect x="2" y="2" width="96" height="96" fill="url(#pattern0)"/>
 <defs>
