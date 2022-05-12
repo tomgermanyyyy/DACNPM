@@ -36,7 +36,7 @@ const feedID = {
                 "X-AIO-Key": ADAFRUIT_KEY
             }
         }
-        const data = {value: `${plotId}-${value}`}
+        const data = {value: `${value}`}
 
         axios.post(`${ADAFRUIT_URL}/${ADAFRUIT_NAME}/feeds/${feedID[name]}/data`, data, config)
     } catch (error) {
