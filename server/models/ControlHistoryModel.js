@@ -6,10 +6,6 @@ const controlHistorySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    timestamp: {
-        type: Date,
-        required: true
-    },
     status: {
         type: String, 
         required: true
@@ -22,6 +18,8 @@ const controlHistorySchema = new mongoose.Schema({
         type: Boolean,
         default: true
     }
+}, {
+    timestamps: true
 });
 
 const controlHistoryModel = mongoose.model("History", controlHistorySchema);

@@ -37,6 +37,10 @@ const plotSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  auto: {
+    type: Number,
+    default: 0,
+  },
   location: {
     type: String,
     required: true,

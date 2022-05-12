@@ -7,6 +7,7 @@ import Dome from '../components/SiloDetail/Dome';
 import '../styles/ChangePasswordPage.css';
 import { useDispatch } from 'react-redux';
 import { openNav } from '../actions/sidebar';
+import Auto from '../components/SiloDetail/Auto';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -84,6 +85,7 @@ const HomePage = () => {
           <div className={classes.modifyButton}>
             <WaterPump siloID={siloID} pump={siloInfo.pump}></WaterPump>
             <Dome siloID={siloID} dome={siloInfo.dome}></Dome>
+            <Auto siloID={siloID} auto={siloInfo.auto}></Auto>
           </div>
         </div>
       </div>

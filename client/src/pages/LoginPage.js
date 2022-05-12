@@ -82,9 +82,9 @@ const Login = () => {
             <input type="checkbox" />
             <span class="checkmark"></span>
           </label>
-          <Link className="forgot-pass" to="#">
+          {/* <Link className="forgot-pass" to="#">
             Forgot password?
-          </Link>
+          </Link> */}
         </div>
         <button type="submit" className="login-button">
           <span>Login</span>

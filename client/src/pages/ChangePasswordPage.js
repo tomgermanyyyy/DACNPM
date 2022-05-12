@@ -101,9 +101,9 @@ const ChangePasswordPage = () => {
           <button type="submit" className="save-btn">
             Save
           </button>
-          <button disabled className="forgot-password-btn">
+          {/* <button disabled className="forgot-password-btn">
             Forgot password?
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

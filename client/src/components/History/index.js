@@ -31,7 +31,7 @@ function History() {
       .then((res) => {
         let arr = [];
         res.data.map((item) => {
-          let date = new Date(item.timestamp);
+          let date = new Date(item.createdAt);
           let hours = date.getHours();
           if (hours < 10) hours = '0' + hours;
 
