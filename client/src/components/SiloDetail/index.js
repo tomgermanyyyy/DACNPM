@@ -39,7 +39,7 @@ const SiloDetail = (props) => {
         dome={props.dome}
         pump={props.pump}
         moisture={props.moisture}
-        temperature={props.temperature}
+        temperature={props.temperature} 
         light={props.light}
       ></InfoBar>
       <div className={classes.address}>

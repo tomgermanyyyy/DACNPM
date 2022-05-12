@@ -87,7 +87,6 @@ def processData(data):
             requests.post(url, data=json.dumps(payload), headers=headers)
             url = API_BASE_URL + "/plot/" + splitData[0]
             data = requests.get(url).json()
-
             if data['auto'] == 1:
                 # Control pump
                 if ((data['moisture_value'] < data['moisture_check'] and data['pump'] == 0) or (data['moisture_value'] > data['moisture_check'] and data['pump'] == 1)):
@@ -111,16 +110,15 @@ def processData(data):
                     requests.post(url, data=json.dumps(payload), headers=headers)
 
                 # Control dome
-                if ((data['temp_value'] > data['temp_check'] and data['dome'] == 0) or (data['light_value'] > data['light_check'] and data['dome'] == 0) or
-                (data['temp_value'] < data['temp_check'] and data['light_value'] < data['light_check'] and data['dome'] == 1)):
+                if (data['temp_value'] > data['temp_check'] and data['dome'] == 2) or (data['light_value'] > data['light_check'] and data['dome'] == 2) or (data['temp_value'] < data['temp_check'] and data['light_value'] < data['light_check'] and data['dome'] == 3):
+                    client.publish("DOME", 3 if data['dome'] == 2 else 2)
                     url = API_BASE_URL + "/adafruit/send"
                     payload = {
                         "plotId": splitData[0],
                         "name": 'dome',
-                        "value": 3 if data['dome'] == 3 else 2
+                        "value": 3 if data['dome'] == 2 else 2
                     }
                     requests.post(url, data=json.dumps(payload), headers=headers)
-                    client.publish("DOME", 3 if data['dome'] == 2 else 2)
                     # Save into history
                     url = API_BASE_URL + "/history/save"
                     payload = {

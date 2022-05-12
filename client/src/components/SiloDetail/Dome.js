@@ -4,14 +4,14 @@ import "../../styles/SwitchButton.css";
 import { useState } from "react";
 import axios from 'axios'
 const Dome = (props) => {
-  const [isChecked, setIsChecked] = useState(props.dome);
+  const [isChecked, setIsChecked] = useState(props.dome === 3);
   const checkHandler = () => {
     setIsChecked(!isChecked);
     fetch(`http://localhost:5000/api/plot/${props.siloID}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        dome: !isChecked,
+        dome: !isChecked ? 3 : 2,
       }),
     });
     axios.post("http://localhost:5000/api/history/save", {

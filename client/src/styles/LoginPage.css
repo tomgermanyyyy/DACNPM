@@ -6,7 +6,7 @@
   height: 100vh;
   position: relative;
   width: 100%;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .login-icon {
@@ -171,6 +171,7 @@ a:active {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   border: none;
+  cursor: pointer;
 }
 
 .login-button:hover {

@@ -10,6 +10,8 @@ import { logout } from "../../actions/auth";
 import { closeNav } from "../../actions/sidebar";
 import { GiThreeLeaves } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
+import {MdLogout} from "react-icons/md"
+import {IoLogOutOutline} from "react-icons/io5"
 const Sidebar = () => {
   const [showCrops, setShowCrops] = useState(false);
   const dispatch = useDispatch();
@@ -24,6 +26,12 @@ const Sidebar = () => {
   return (
     <div id="sidebar" className="side-bar">
       <h1 className="side-bar-title">SMART FARM</h1>
+      <div className="user-info">
+        <div className="avatar-center">
+          <Avatar />
+        </div>
+        <span style={{ color: "white", fontWeight: "bold" }}>Admin</span>
+      </div>
       <button className="closebtn" onClick={() => dispatch(closeNav())}>
         &times;
       </button>
@@ -51,15 +59,12 @@ const Sidebar = () => {
       >
         <SettingIcon /> <span>Password</span>
       </button>
-      <div className="user-info">
-        <Avatar />
-        <p>Username</p>
-      </div>
+        
       <button
         onClick={() => dispatch(logout())}
         className="side-bar-btn logout-btn"
       >
-        <LogoutIcon /> <span>Logout</span>
+        <LogoutIcon /><span>Log out</span>
       </button>
     </div>
   );
