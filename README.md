@@ -1,5 +1,4 @@
-# Welcome to Smart Farm !!
-# Hướng dẫn chạy trên localhost
+# Welcome to Smart Farm :man_farmer:	
 ## Yêu cầu
 1. Máy đã cài đặt npm. Có thể download npm tại đường link này: https://nodejs.org/en/download/
 2. Port 3000 (React App) và 5000 (Node server) đang không được sử dụng bởi bất kỳ process nào
